@@ -24,11 +24,6 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/threads")
-    public String threads(Model model) {
-        System.out.println("Threads method called!");
-        return "threads";
-    }
 
     @GetMapping("/login")
     public String login(Model model) {
@@ -40,5 +35,11 @@ public class HomeController {
     public String favorites(Model model) {
         System.out.println("Favorites method called!");
         return "favorites";
+    }
+    
+    @GetMapping("/contact")
+    public String contact(Model model) {
+        System.out.println("Contact method called!");
+        return "contact";
     }
 }
