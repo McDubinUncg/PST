@@ -13,6 +13,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     </head>
+
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">Personal Sports Tracker</a>
@@ -37,27 +38,25 @@
                 </ul>
             </div>
         </nav>
-        <div class="slideshow" style="border-radius: 10px; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?fit=crop&w=800&h=300" alt="Image 1 - Basketball">
-            <img src="https://images.unsplash.com/photo-1593005510329-8a4035a7238f?fit=crop&w=800&h=300" alt="Image 2 - Soccer">
-            <img src="https://images.unsplash.com/photo-1546484953-677481a3e3d5?fit=crop&w=800&h=300" alt="Image 3 - Running">
-        </div>
-        <div class="d-flex align-items-stretch justify-content-between">
-            <div class="container-left" style="margin-left: 25px;">
-                <div class="row">
-                    <div id="favorites" class="col-md-3">
-                        <h3 class="text-center">Favorite Teams</h3>
-                        <ul class="list-group">
-                            <li class="list-group-item">Team 1</li>
-                        </ul>
+        <div class="container mt-4 fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3 class="text-center">Favorite Teams</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">Team 1</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="slideshow" style="border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?fit=crop&w=1000&h=500" alt="Image 1 - Basketball">
+                        <img src="https://images.unsplash.com/photo-1510673292462-675cdced2ff1?fit=crop&w=1000&h=500" alt="Image 2 - Soccer">
+                        <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?fit=crop&w=1000&h=500" alt="Image 3 - Running">
                     </div>
                 </div>
-            </div>
-            <div class="container-right  float-right" id="hyperlink-box">
-                <div id="links" class="col-md-3">
+                <div class="col-md-3">
                     <h3 class="text-center">Links</h3>
                     <div th:each="hyperlink : ${hyperlinks}">
-                        <a href="${hyperlink.url}" th:text="${hyperlink.name}"></a>
+                        <a th:href="${hyperlink.url}" th:text="${hyperlink.name}"></a>
                         <a th:href="@{/hyperlinks/edit/{id}(id=${hyperlink.id})}">Edit</a>
                         <a th:href="@{/hyperlinks/delete/{id}(id=${hyperlink.id})}">Delete</a>
                     </div>
@@ -82,3 +81,4 @@
         </script>
     </body>
 </html>
+
