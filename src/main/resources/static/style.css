@@ -1,0 +1,37 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Apr 17, 2023, 9:31:48 PM
+    Author     : those
+*/
+
+.favorite-teams {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.favorite-teams .list-group-item {
+    flex-basis: calc(50% - 10px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.hyperlink-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.hyperlink {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.hyperlink-action {
+    margin-right: 10px;
+}
+.news-card {
+    margin-bottom: 20px;
+}

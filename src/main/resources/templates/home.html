@@ -7,7 +7,7 @@
         <title>Personal Sports Tracker</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -38,11 +38,11 @@
                 </ul>
             </div>
         </nav>
-        <div class="container mt-4 fluid">
+        <div class="container mt-4">
             <div class="row">
                 <div class="col-md-3">
                     <h3 class="text-center">Favorite Teams</h3>
-                    <ul class="list-group">
+                    <ul class="list-group favorite-teams">
                         <li class="list-group-item">Team 1</li>
                     </ul>
                 </div>
@@ -52,31 +52,43 @@
                         <img src="https://images.unsplash.com/photo-1510673292462-675cdced2ff1?fit=crop&w=1000&h=500" alt="Image 2 - Soccer">
                         <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?fit=crop&w=1000&h=500" alt="Image 3 - Running">
                     </div>
+                    <div class="row">
+                        <div th:each="news : ${sportsNewsList}" class="col-md-4">
+                            <div class="card news-card" style="width: 18rem;">
+                                <img class="card-img-top" th:src="${news.imageUrl}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${news.title}">News Title</h5>
+                                    <a th:href="${news.url}" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-3">
                     <h3 class="text-center">Links</h3>
-                    <div th:each="hyperlink : ${hyperlinks}">
-                        <a th:href="${hyperlink.url}" th:text="${hyperlink.name}"></a>
-                        <a th:href="@{/hyperlinks/edit/{id}(id=${hyperlink.id})}">Edit</a>
-                        <a th:href="@{/hyperlinks/delete/{id}(id=${hyperlink.id})}">Delete</a>
+                    <div th:each="hyperlink : ${hyperlinks}" class="hyperlinks-container">
+                        <a th:href="${hyperlink.url}" th:text="${hyperlink.name}" class="hyperlink"></a>
+                        <a th:href="@{/hyperlinks/edit/{id}(id=${hyperlink.id})}" class="hyperlink-action">Edit</a>
+                        <a th:href="@{/hyperlinks/delete/{id}(id=${hyperlink.id})}" class="hyperlink-action">Delete</a>
                     </div>
                     <a class="btn btn-primary" th:href="@{/hyperlinks/add}">Add Hyperlink</a>
                 </div>
             </div>
         </div>
+
         <script>
             $(document).ready(function () {
-                $('.slideshow').slick({
-                    dots: false,
-                    infinite: true,
-                    speed: 500,
-                    fade: true,
-                    cssEase: 'linear',
-                    autoplay: true,
-                    autoplaySpeed: 2000,
-                    arrows: false,
-                    adaptiveHeight: true,
-                });
+            $('.slideshow').slick({
+            dots: false,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: false,
+            adaptiveHeight: true,
+            });
             });
         </script>
     </body>
