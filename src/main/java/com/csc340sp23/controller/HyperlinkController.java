@@ -1,4 +1,4 @@
-package com.csc340sp23.Controller;
+package com.csc340sp23.controller;
 
 
 

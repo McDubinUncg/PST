@@ -5,6 +5,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Personal Sports Tracker</title>
+        <style>body{
+                background-color: lightgray;
+            }
+            </style>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="/style.css">
@@ -42,9 +46,9 @@
             <div class="row">
                 <div class="col-md-3">
                     <h3 class="text-center">Favorite Teams</h3>
-                    <ul class="list-group favorite-teams">
-                        <li class="list-group-item">Team 1</li>
-                    </ul>
+                    <div th:each="favorites : ${favorites}">
+                        <a th:text="${hyperlink.name}"></a>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="slideshow" style="border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
@@ -52,18 +56,10 @@
                         <img src="https://images.unsplash.com/photo-1510673292462-675cdced2ff1?fit=crop&w=1000&h=500" alt="Image 2 - Soccer">
                         <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?fit=crop&w=1000&h=500" alt="Image 3 - Running">
                     </div>
-                    <div class="row">
-                        <div th:each="news : ${sportsNewsList}" class="col-md-4">
-                            <div class="card news-card" style="width: 18rem;">
-                                <img class="card-img-top" th:src="${news.imageUrl}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title" th:text="${news.title}">News Title</h5>
-                                    <a th:href="${news.url}" class="btn btn-primary">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
+                <div class="col-mt-4">
+                    <div class="row">
                 <div class="col-md-3">
                     <h3 class="text-center">Links</h3>
                     <div th:each="hyperlink : ${hyperlinks}" class="hyperlinks-container">
@@ -75,6 +71,17 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+                        <div th:each="news : ${sportsNewsList}" class="col-md-4">
+                            <div class="card news-card" style="width: 18rem;">
+                                <img class="card-img-top" th:src="${news.imageUrl}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${news.title}">News Title</h5>
+                                    <a th:href="${news.url}" class="btn btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
         <script>
             $(document).ready(function () {

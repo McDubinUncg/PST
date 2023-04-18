@@ -6,6 +6,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : Apr 17, 2023, 9:31:48 PM
     Author     : those
 */
+.body{
+    color: dimgrey;
+}
 
 .favorite-teams {
     display: flex;
@@ -33,5 +36,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     margin-right: 10px;
 }
 .news-card {
-    margin-bottom: 20px;
+    margin: 0 15px 30px;
 }
